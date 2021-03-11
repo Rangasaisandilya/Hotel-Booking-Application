@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "hotelbookingappmain4cc79e92": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
