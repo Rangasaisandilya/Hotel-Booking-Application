@@ -1,7 +1,7 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import Auth from '@aws-amplify/auth';
+// import Auth from '@aws-amplify/auth';
 import {
   View,
   Text,
@@ -19,7 +19,7 @@ import {useNavigation} from '@react-navigation/native';
 const Home = (props) => {
   const navigation = useNavigation();
   const logout = () => {
-    Auth.signOut();
+    // Auth.signOut();
   };
   return (
     <View>

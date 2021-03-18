@@ -1,6 +1,8 @@
+/* eslint-disable no-shadow */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, {useState} from 'react';
+import Auth from '@aws-amplify/auth';
 import {
   View,
   Text,
@@ -9,6 +11,7 @@ import {
   Alert,
   StyleSheet,
   StatusBar,
+  DatePickerIOSComponent,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
@@ -18,23 +21,43 @@ function Finalpage({route}) {
   const [hotelName, setHotelName] = useState('');
   const [address, setAddress] = useState('');
   const [days, setDays] = useState('');
-  const [phoneNo, setPhoneNo] = useState('');
+  const [price, setPrice] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [aadharNumber, setAadharNumber] = useState('');
   const checkTextInput = () => {
     return;
   };
-  const PostAddres = (name, hotelName, address, days, phoneNo) => {
+  const PostUser = (
+    name,
+    hotelName,
+    address,
+    days,
+    price,
+    phoneNumber,
+    aadharNumber,
+  ) => {
     if (
       name === '' ||
       hotelName === '' ||
       address === '' ||
       days === '' ||
-      phoneNo === ''
+      price === '' ||
+      phoneNumber === '' ||
+      aadharNumber === ''
     ) {
       alert('Please Enter all fields');
       return;
     }
-    alert('Success');
-    console.log(name, hotelName, address, days, phoneNo);
+    alert('Your room has been booked');
+    console.log(
+      name,
+      hotelName,
+      address,
+      days,
+      phoneNumber,
+      price,
+      aadharNumber,
+    );
     fetch('http://192.168.0.10:8080/customers', {
       method: 'POST',
       headers: {
@@ -47,7 +70,9 @@ function Finalpage({route}) {
         hotelName: hotelName,
         address: address,
         days: days,
-        phoneNo: phoneNo,
+        price: price * days,
+        phoneNumber: phoneNumber,
+        aadharNumber: aadharNumber,
       }),
     })
       .then((response) => response.json())
@@ -59,7 +84,6 @@ function Finalpage({route}) {
       })
       .done();
   };
-  const navigation = useNavigation();
   const item = route.params;
   return (
     <View>
@@ -89,6 +113,7 @@ function Finalpage({route}) {
             style={styles.TextInput}
             placeholder="HotelName"
             onChangeText={(hotelName) => setHotelName(hotelName)}
+            defaultValue={item.name}
           />
         </View>
         <View style={styles.inputView}>
@@ -108,20 +133,46 @@ function Finalpage({route}) {
         <View style={styles.inputView}>
           <TextInput
             style={styles.TextInput}
-            placeholder="PhoneNumber"
-            onChangeText={(phoneNo) => setPhoneNo(phoneNo)}
+            placeholder="price"
+            onChangeText={(price) => setPrice(price)}
+            defaultValue={item.price}
           />
+        </View>
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            placeholder="PhoneNumber"
+            onChangeText={(phoneNumber) => setPhoneNumber(phoneNumber)}
+          />
+        </View>
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            placeholder="AadharNumber"
+            onChangeText={(aadharNumber) => setAadharNumber(aadharNumber)}
+          />
+        </View>
+        <View style={styles.view}>
+          <Text style={{color: 'black', fontWeight: 'bold', fontSize: 18}}>
+            Total price is :₹
+            {item.price * days}/-
+          </Text>
         </View>
         <Button
           title="Confirm"
-          onPress={() => PostAddres(name, hotelName, address, days, phoneNo)}
+          onPress={() =>
+            PostUser(
+              name,
+              hotelName,
+              address,
+              days,
+              price,
+              phoneNumber,
+              aadharNumber,
+            )
+          }
           color="red"
         />
-        {/* <Button
-          title="View details"
-          onPress={() => navigation.navigate('Viewdetails', item)}
-          color="blue"
-        /> */}
       </View>
     </View>
   );
@@ -134,6 +185,12 @@ const styles = StyleSheet.create({
     height: 60,
     marginBottom: 20,
     alignItems: 'flex-start',
+  },
+  view: {
+    width: '70%',
+    height: 30,
+    marginBottom: 0,
+    alignItems: 'center',
   },
   TextInput: {
     height: 50,

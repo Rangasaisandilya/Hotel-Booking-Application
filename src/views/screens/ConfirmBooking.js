@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -10,43 +10,11 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import {DataTable, TextInput} from 'react-native-paper';
+import {DataTable} from 'react-native-paper';
 import ModalDropdown from 'react-native-modal-dropdown';
-import {AsyncStorage} from '@react-native-community/async-storage';
 
-const STORAGE_KEY = '@save_days';
 const ConfirmBooking = ({navigation, route}) => {
   const item = route.params;
-  const [days, setDays] = useState('');
-  const saveData = async () => {
-    try {
-      await AsyncStorage.setItem(STORAGE_KEY, days);
-      alert('Data successfully saved');
-    } catch (e) {
-      alert('Failed to save the data to the storage');
-    }
-  };
-  const readData = async () => {
-    try {
-      const userDays = await AsyncStorage.getItem(STORAGE_KEY);
-      if (userDays !== null) {
-        setAge(userDays);
-      }
-    } catch (e) {
-      alert('Failed to fetch the data from storage');
-    }
-  };
-  useEffect(() => {
-    readData();
-  }, []);
-
-  const onChangeText = (userDays) => setDays(userDays);
-
-  const onSubmitEditing = () => {
-    if (!days) return;
-    saveData(days);
-    setDays('');
-  };
 
   return (
     <ScrollView>
@@ -58,7 +26,9 @@ const ConfirmBooking = ({navigation, route}) => {
         <DataTable style={style.data}>
           <DataTable.Row>
             <DataTable.Cell>
-              <Text style={{fontWeight: 'bold'}}>Location</Text>
+              <Text numberOfLines={3} style={{fontWeight: 'bold'}}>
+                Location
+              </Text>
             </DataTable.Cell>
             <DataTable.Cell style={{backgroundColor: 'white'}}>
               {item.location}
@@ -82,14 +52,6 @@ const ConfirmBooking = ({navigation, route}) => {
           </DataTable.Row>
           <DataTable.Row>
             <DataTable.Cell>
-              <Text style={{fontWeight: 'bold'}}>Breakfast</Text>
-            </DataTable.Cell>
-            <DataTable.Cell style={{backgroundColor: 'white'}}>
-              Included
-            </DataTable.Cell>
-          </DataTable.Row>
-          <DataTable.Row>
-            <DataTable.Cell>
               <Text style={{fontWeight: 'bold'}}>Price</Text>
             </DataTable.Cell>
             <DataTable.Cell style={{backgroundColor: 'white'}}>
@@ -97,18 +59,6 @@ const ConfirmBooking = ({navigation, route}) => {
             </DataTable.Cell>
           </DataTable.Row>
         </DataTable>
-        <View style={{backgroundColor: 'white', marginLeft: 40}}>
-          <TextInput
-            style={style.input}
-            value={days}
-            placeholder=" enter days"
-            onChangeText={onChangeText}
-            onSubmitEditing={onSubmitEditing}
-          />
-          <Text style={style.text}>
-            Your total price for {days} days is ₹{days * item.price}
-          </Text>
-        </View>
         <View>
           <ModalDropdown
             options={['pay during checkin', 'pay after checkout']}
@@ -145,7 +95,8 @@ const ConfirmBooking = ({navigation, route}) => {
             }}
           />
         </View>
-        <TouchableOpacity onPress={() => navigation.navigate('Finalpage')}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Finalpage', item)}>
           <View style={style.btn}>
             <Text style={{color: 'white', fontSize: 18, fontWeight: 'bold'}}>
               Confirm Booking
