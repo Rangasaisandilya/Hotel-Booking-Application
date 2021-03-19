@@ -5,6 +5,7 @@ const Banglore = [
     location: 'Yeshwantpur,Banglore',
     price: '4000',
     size: '480sqt',
+    roomid: '3',
     // image: require('/home/rangasai/Desktop/hotel/HotelApplication-master/src/assets/TajYeshwanthapur.png'),
     image:
       'https://pix10.agoda.net/hotelImages/178/178012/178012_120407123747377.jpg?s=1024x768',
@@ -13,9 +14,10 @@ const Banglore = [
   },
   {
     id: '2',
-    name: 'ritz carlon ',
+    name: 'Ritz Carlon ',
     location: 'Ashoknagar,Banglore',
     price: '7600',
+    roomid: '2',
     size: '550sqt',
     // image: require('/home/rangasai/Desktop/hotel/HotelApplication-master/src/assets/ritzcarlon.png'),
     image:
@@ -28,6 +30,7 @@ const Banglore = [
     name: 'The Oberoi',
     location: 'Gandhi Road,Banglore',
     price: '9000',
+    roomid: '1',
     size: '990sqt',
     // image: require('/home/rangasai/Desktop/hotel/HotelApplication-master/src/assets/Oberai.png'),
     image:
@@ -41,6 +44,7 @@ const Banglore = [
     location: 'Old Airport Road,Banglore',
     price: '10000',
     size: '550sqt',
+    roomid: '4',
     // image: require('/home/rangasai/Desktop/hotel/HotelApplication-master/src/assets/Leelapalace.png'),
     image:
       'https://www.theleela.com/en_us/bengaluru-hotel-images/rooms-and-suites/royal-premiere-room.jpg',

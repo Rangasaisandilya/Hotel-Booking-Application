@@ -9,7 +9,7 @@ const post = places[0];
 
 const PostscreenDelhi = (props) => {
   const route = useRoute();
-  //   console.log(route.params);
+  //console.log(route.params);
   const post = places.find((place) => place.id === route.params.postId);
   return (
     <View style={{backgroundColor: 'white'}}>

@@ -64,7 +64,8 @@ export default class SignUp extends Component {
       .then((response) => response.json())
       .then((responseJson) => {
         console.log(responseJson);
-        alert('Registration success');
+        // alert('Registration success');
+        this.props.navigation.navigate('Login');
         this.setState({
           data: responseJson,
         });
@@ -165,7 +166,7 @@ export default class SignUp extends Component {
                   SignUp
                 </Text>
               </LinearGradient>
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 onPress={() => this.props.navigation.navigate('Login')}
                 style={[
                   styles.signIn,
@@ -183,7 +184,7 @@ export default class SignUp extends Component {
                   ]}>
                   SignIn
                 </Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </View>
         </ScrollView>

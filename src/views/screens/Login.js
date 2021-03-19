@@ -15,6 +15,7 @@ export default class SignInScreen extends Component {
     this.state = {
       emailId: '',
       password: '',
+      userId: '',
     };
   }
   componentDidMount() {}
@@ -35,10 +36,12 @@ export default class SignInScreen extends Component {
       .then((response) => response.json())
       .then((responseJson) => {
         console.log(responseJson);
-        if (responseJson.status === 200) {
-          this.props.navigation.navigate('Home');
+        this.userId = responseJson.userId;
+        if (responseJson.status === 500) {
+          alert('emailid or password incorrect try again!');
+          // this.props.navigation.navigate('Home');
         } else {
-          this.props.navigation.navigate('Home');
+          this.props.navigation.navigate('Home', this.userId);
           // alert('Username/Password mismatch');
         }
         console.log(responseJson);
@@ -56,29 +59,47 @@ export default class SignInScreen extends Component {
         <View style={{height: 100}}>
           <Text
             style={{
-              color: '#4863a0',
+              color: 'green',
               fontWeight: 'bold',
               fontSize: 30,
               marginTop: 20,
               textAlign: 'center',
             }}>
-            Credentials to Login
+            Enter Details to Login
           </Text>
         </View>
         <View>
-          <Text style={{fontSize: 20}}>emailId</Text>
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: 'bold',
+              fontStyle: 'italic',
+              color: 'black',
+              marginLeft: 30,
+            }}>
+            Email Id
+          </Text>
           <View style={styles.action}>
             <TextInput
-              placeholder="Enter email id"
+              placeholder="Enter your email id"
               placeholderTextColor="#666666"
               style={styles.textInput}
               value={this.state.emailId}
               onChangeText={(emailId) => this.setState({emailId: emailId})}
             />
           </View>
-          <Text style={{marginTop: 20, fontSize: 20}}>Password</Text>
+          <Text
+            style={{
+              marginTop: 20,
+              fontSize: 20,
+              fontWeight: 'bold',
+              fontStyle: 'italic',
+              color: 'black',
+              marginLeft: 30,
+            }}>
+            Password
+          </Text>
           <View style={styles.action}>
-            <FontAwesome name="lock" color="#05375a" size={25} />
             <TextInput
               placeholder="Enter Password"
               style={styles.textInput}
@@ -88,15 +109,13 @@ export default class SignInScreen extends Component {
             />
           </View>
           <View style={styles.button}>
-            <LinearGradient
-              colors={['#1f65ff', '#1f65ff']}
-              style={styles.signIn}>
+            <LinearGradient colors={['white', 'white']} style={styles.signIn}>
               <Text
                 onPress={this.checkLogin.bind(this)}
                 style={[
                   styles.textSign,
                   {
-                    color: '#fff',
+                    color: 'red',
                   },
                 ]}>
                 SignIn
@@ -107,7 +126,7 @@ export default class SignInScreen extends Component {
               style={[
                 styles.signIn,
                 {
-                  borderColor: '#1f65ff',
+                  borderColor: '#fff',
                   borderWidth: 1,
                   marginTop: 15,
                 },
@@ -116,10 +135,10 @@ export default class SignInScreen extends Component {
                 style={[
                   styles.textSign,
                   {
-                    color: '#1f65ff',
+                    color: 'red',
                   },
                 ]}>
-                SignUp
+                Not user? Register here
               </Text>
             </TouchableOpacity>
           </View>
@@ -149,6 +168,7 @@ const styles = StyleSheet.create({
     marginTop: -10,
     paddingLeft: 10,
     color: '#05375a',
+    marginLeft: 20,
   },
   button: {
     alignItems: 'center',

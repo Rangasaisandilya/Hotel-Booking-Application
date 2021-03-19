@@ -8,30 +8,34 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-
+import {useNavigation, useRoute} from '@react-navigation/native';
+// useRoute
 const DetailedPost = (props) => {
-  // console.log(props)
-  const post = props.post;
+  //console.log(props);
+  const route = useRoute();
+  const user4 = route.params.user3;
+  console.log(user4);
+  const posts = props.post;
+  // console.log(posts);
   const navigation = useNavigation();
 
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Image style={styles.image} source={{uri: post.image}} />
-        <Text style={styles.name}>{post.name}</Text>
+        <Image style={styles.image} source={{uri: posts.image}} />
+        <Text style={styles.name}>{posts.name}</Text>
         <Text style={styles.description} numberOfLines={2}>
-          {post.location}
+          {posts.location}
         </Text>
         <Text style={styles.prices}>
           {/* <Text style={styles.oldPrice}>{post.oldPrice}</Text> */}
-          <Text style={styles.newPrice}> ₹{post.price} </Text>/ per day
+          <Text style={styles.newPrice}> ₹{posts.price} </Text>/ per day
         </Text>
         {/* <Text style={styles.totalPrice}>€{post.totalPrice} total</Text> */}
 
-        <Text style={styles.longDescription}>{post.details}</Text>
+        <Text style={styles.longDescription}>{posts.details}</Text>
         <TouchableOpacity
-          onPress={() => navigation.navigate('ConfirmBooking', post)}>
+          onPress={() => navigation.navigate('ConfirmBooking', posts, user4)}>
           <View
             style={{
               height: 55,

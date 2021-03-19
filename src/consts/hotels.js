@@ -9,9 +9,10 @@ const hotels = [
   //   details: `Hyderabad is a city steeped history and Islam. With towering monuments such as the Charminar and forts dating back to the early 16th century, this city boasts an impressive repertoire of architecture that is matched by few. In the heart of the Old City are antiquated spice markets and chai merchants, plying their trade as things were in the old days. Historic and thriving, Hyderabad is where history comes alive.`,
   // },
   {
-    id: '1',
+    id: '9',
+    roomid: '12',
     name: 'Taj palace',
-    location: 'Chanakyapuri, New Delhi',
+    location: 'Chanakyapuri,Delhi',
     price: '7000',
     size: '550sqt',
     image:
@@ -21,9 +22,10 @@ const hotels = [
     details: ` The Capital’s Palace Since 1983. Nestled amidst the heart of the historic Indian capital city, the iconic Taj Palace, New Delhi has held a distinguished position amongst the finest hotels of the world for close to four decades`,
   },
   {
-    id: '2',
+    id: '10',
+    roomid: '11',
     name: 'Radisson Blu Plaza',
-    location: 'NH-8 road,New Delhi',
+    location: 'NH-8 road,Delhi',
     price: '9000',
     size: '990sqt',
     image:
@@ -32,9 +34,10 @@ const hotels = [
     details: `With an ideal location just five minutes from Indira Gandhi International Airport (DEL) and 10 minutes from Cyber City, the Radisson Blu Plaza Delhi Airport provides upscale accommodations and convenient city access. Situated on the Delhi-Gurgaon Expressway, our hotel places guests near New Delhi’s vibrant South and Central sides and close to the bustling commercial hub of Gurugram (formerly Gurgaon)`,
   },
   {
-    id: '3',
-    name: 'Hyatt Regency Delhi',
-    location: 'Ring Road, Delhi',
+    id: '11',
+    roomid: '10',
+    name: 'Hyatt Regency ',
+    location: 'Ring Road,Delhi',
     price: '5600',
     size: '550sqt',
     image:
@@ -43,9 +46,10 @@ const hotels = [
     details: `Located in Delhi's central business district with close proximity to Noida and Gurgaon, 8.5 km from the Indira Gandhi International airport, Hyatt Regency Delhi features free WiFi and a variety of dining options. It is 4.3 km from Chanakyapuri and AIIMS. This 5-star hotel is situated on the outer ring road.    `,
   },
   {
-    id: '4',
+    id: '12',
+    roomid: '9',
     name: 'Ajanta Hotel',
-    location: 'shan Road,New Delhi',
+    location: 'Shan Road,Delhi',
     price: '1000',
     size: '550sqt',
     image: 'https://cf.bstatic.com/images/hotel/max1024x768/123/123693115.jpg',

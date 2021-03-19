@@ -2,7 +2,6 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, {useState} from 'react';
-import Auth from '@aws-amplify/auth';
 import {
   View,
   Text,
@@ -17,48 +16,75 @@ import {useNavigation} from '@react-navigation/native';
 
 // const navigation = useNavigation();
 function Finalpage({route}) {
-  const [name, setName] = useState('');
-  const [hotelName, setHotelName] = useState('');
-  const [address, setAddress] = useState('');
-  const [days, setDays] = useState('');
-  const [price, setPrice] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [aadharNumber, setAadharNumber] = useState('');
+  // const [name, setName] = useState('');
+  // const [hotelName, setHotelName] = useState('');
+  // const [address, setAddress] = useState('');
+  // const [days, setDays] = useState('');
+  // const [price, setPrice] = useState('');
+  // const [phoneNumber, setPhoneNumber] = useState('');
+  // const [aadharNumber, setAadharNumber] = useState('');
+  const [bookDays, setBookDays] = useState('');
+  const [totalPrice, setTotalPrice] = useState('');
+  const [bookingStatus, setBookingStatus] = useState('');
+  // const [roomid, setRoomid] = useState('');
+  // const user6 = route.params.user5;
+  // console.log(user6);
+  var userObj = {};
+  userObj = {userId: 1};
+
+  const item = route.params.roomid;
+  // console.log(item);
+  var roomObj = {};
+  roomObj = {roomId: item};
   const checkTextInput = () => {
     return;
   };
   const PostUser = (
-    name,
-    hotelName,
-    address,
-    days,
-    price,
-    phoneNumber,
-    aadharNumber,
+    // hotelName,
+    // address,
+    // days,
+    // price,
+    // phoneNumber,
+    // aadharNumber,
+    // roomid,
+    bookDays,
+    totalPrice,
+    bookingStatus,
+    // userObj,
+    // roomObj,
   ) => {
     if (
-      name === '' ||
-      hotelName === '' ||
-      address === '' ||
-      days === '' ||
-      price === '' ||
-      phoneNumber === '' ||
-      aadharNumber === ''
+      // name === '' ||
+      // hotelName === '' ||
+      // address === '' ||
+      // days === '' ||
+      // price === '' ||
+      // phoneNumber === '' ||
+      // roomid === '' ||
+      // aadharNumber === ''
+      bookDays === '' ||
+      totalPrice === '' ||
+      bookingStatus === ''
     ) {
       alert('Please Enter all fields');
       return;
     }
     alert('Your room has been booked');
     console.log(
-      name,
-      hotelName,
-      address,
-      days,
-      phoneNumber,
-      price,
-      aadharNumber,
+      // name,
+      // hotelName,
+      // address,
+      // days,
+      // phoneNumber,
+      // price,
+      // aadharNumber,
+      bookDays,
+      totalPrice,
+      bookingStatus,
+      roomObj,
+      // roomid,
     );
-    fetch('http://192.168.0.10:8080/customers', {
+    fetch('http://192.168.0.10:8080/save-hotels', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -66,13 +92,21 @@ function Finalpage({route}) {
       },
 
       body: JSON.stringify({
-        name: name,
-        hotelName: hotelName,
-        address: address,
-        days: days,
-        price: price * days,
-        phoneNumber: phoneNumber,
-        aadharNumber: aadharNumber,
+        // name: name,
+        // hotelName: hotelName,
+        // address: address,
+        // days: days,
+        // price: price * days,
+        // phoneNumber: phoneNumber,
+        // aadharNumber: aadharNumber,
+        // users: userObj,
+        //roomDetails: 12,
+        //users: 2,
+        bookDays: bookDays,
+        totalPrice: totalPrice * bookDays,
+        bookingStatus: bookingStatus,
+        users: userObj,
+        roomDetails: roomObj,
       }),
     })
       .then((response) => response.json())
@@ -84,7 +118,10 @@ function Finalpage({route}) {
       })
       .done();
   };
-  const item = route.params;
+  // const item = route.params.roomid;
+  const item1 = route.params;
+
+  // console.log(item);
   return (
     <View>
       <StatusBar barStyle="dark-content" translucent backgroundColor="white" />
@@ -101,7 +138,7 @@ function Finalpage({route}) {
         <Text style={{color: 'white', fontSize: 25, marginBottom: 65}}>
           Enter your details to confirm
         </Text>
-        <View style={styles.inputView}>
+        {/* <View style={styles.inputView}>
           <TextInput
             style={styles.TextInput}
             placeholder="name"
@@ -157,19 +194,56 @@ function Finalpage({route}) {
             Total price is :₹
             {item.price * days}/-
           </Text>
+        </View> */}
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            placeholder="enter days"
+            onChangeText={(bookDays) => setBookDays(bookDays)}
+          />
         </View>
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            placeholder="price"
+            onChangeText={(totalPrice) => setTotalPrice(totalPrice)}
+            defaultValue={item1.price}
+          />
+        </View>
+        {/* <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            placeholder="price"
+            onChangeText={(roomid) => setRoomid(roomid)}
+            defaultValue={item1.roomid}
+          />
+        </View> */}
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            placeholder="booking status"
+            onChangeText={(bookingStatus) => setBookingStatus(bookingStatus)}
+            defaultValue="pay during checkin"
+          />
+        </View>
+        <View style={styles.view}>
+          <Text style={{color: 'black', fontWeight: 'bold', fontSize: 18}}>
+            Total price is :₹
+            {item1.price * bookDays}/-
+          </Text>
+        </View>
+
         <Button
           title="Confirm"
-          onPress={() =>
-            PostUser(
-              name,
-              hotelName,
-              address,
-              days,
-              price,
-              phoneNumber,
-              aadharNumber,
-            )
+          onPress={
+            () => PostUser(bookDays, totalPrice, bookingStatus /*roomid*/)
+            // name,
+            // hotelName,
+            // address,
+            // days,
+            // price,
+            // phoneNumber,
+            // aadharNumber,
           }
           color="red"
         />

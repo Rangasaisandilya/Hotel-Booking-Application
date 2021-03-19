@@ -16,11 +16,13 @@ import {
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
 
-const Home = (props) => {
+const Home = ({props, route}) => {
   const navigation = useNavigation();
   const logout = () => {
-    // Auth.signOut();
+    navigation.navigate('Login');
   };
+  const user1 = route.params;
+  console.log(user1);
   return (
     <View>
       <ImageBackground
@@ -30,7 +32,7 @@ const Home = (props) => {
         <Text style={styles.title}>Welcome to Hotel Booking App</Text>
         <Pressable
           style={styles.buttons}
-          onPress={() => navigation.navigate('DestinationSearch')}>
+          onPress={() => navigation.navigate('DestinationSearch', user1)}>
           <FontAwesome name="hand-o-right" size={25} color={'#f15454'} />
           <Text style={styles.buttonText}>Click here to book hotel</Text>
           <FontAwesome name="hand-o-left" size={25} color={'#f15454'} />

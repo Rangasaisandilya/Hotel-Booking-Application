@@ -1,8 +1,9 @@
 const Hyderabad = [
   {
-    id: '1',
+    id: '13',
+    roomid: '16',
     name: 'Novotel',
-    location: 'Hitec City,Hyderabad',
+    location: 'Kondapur,Hyderabad',
     price: '2500',
     size: '480sqt',
     // image: require('/home/rangasai/Desktop/hotel/HotelApplication-master/src/assets/Novotel.jpg'),
@@ -10,7 +11,8 @@ const Hyderabad = [
     details: `Hyderabad is a city steeped history and Islam. With towering monuments such as the Charminar and forts dating back to the early 16th century, this city boasts an impressive repertoire of architecture that is matched by few. In the heart of the Old City are antiquated spice markets and chai merchants, plying their trade as things were in the old days. Historic and thriving, Hyderabad is where history comes alive.`,
   },
   {
-    id: '2',
+    id: '14',
+    roomid: '15',
     name: 'Trident',
     location: 'Hitech City,Hyderabad',
     price: '7000',
@@ -20,9 +22,10 @@ const Hyderabad = [
     details: `Breaks are good, but longer breaks are better!,Book a fabulous two night break and get the third night absolutely free! Have a memorable holiday with your loved ones, indulge in delectable international cuisines and get pampered with our warm hospitality.`,
   },
   {
-    id: '3',
-    name: 'Vivanta by Taj',
-    location: 'Begumpet,hyderabad',
+    id: '15',
+    roomid: '14',
+    name: 'Vivanta By Taj',
+    location: 'Begumpet,Hyderabad',
     price: '9000',
     size: '990sqt',
     // image: require('/home/rangasai/Desktop/hotel/HotelApplication-master/src/assets/vivanta_by_taj.webp'),
@@ -30,8 +33,9 @@ const Hyderabad = [
     details: `An upscale experience awaits you in the heart of Hyderabad. Located in close proximity to major landmarks of the city; a short walk from key tourist attractions, shopping destinations and theatres; Vivanta Hyderabad Begumpet is a unique mix of contemporary style and traditional values.`,
   },
   {
-    id: '4',
+    id: '16',
     name: 'Taj Deccan',
+    roomid: '13',
     location: 'Banjara Hills, Hyderabad',
     price: '5000',
     size: '550sqt',

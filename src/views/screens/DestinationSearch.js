@@ -16,9 +16,11 @@ import searchResultsHyderabad from '../../consts/searchhyd';
 import Goa from '../../consts/Goa';
 import {useNavigation, useRoute} from '@react-navigation/native';
 
-const DestinationSearch = (props) => {
+const DestinationSearch = ({props, route}) => {
   const [inputText, setInputText] = useState('');
   const navigation = useNavigation();
+  const user2 = route.params;
+  console.log(user2);
   return (
     <View style={styles.container}>
       <Text style={styles.textInput}>Choose Your City</Text>
@@ -26,7 +28,7 @@ const DestinationSearch = (props) => {
         data={searchResultsDelhi}
         renderItem={({item}) => (
           <Pressable
-            onPress={() => navigation.navigate('Delhi')}
+            onPress={() => navigation.navigate('DelhiHome1', user2)}
             style={styles.row}>
             <View style={styles.iconContainer}>
               <Entypo name={'location-pin'} size={30} />

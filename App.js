@@ -81,6 +81,9 @@ const App = () => {
         <Stack.Screen name="DestinationSearch" component={DestinationSearch} />
         <Stack.Screen name="Finalpage" component={Finalpage} />
         <Stack.Screen name="Viewdetails" component={Viewdetails} />
+        <Stack.Screen name="DelhiHome1" component={DelhiHome1} />
+        <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
+        <Stack.Screen name="ConfirmBooking" component={ConfirmBooking} />
         {/* <Stack.Screen name="GoaHome1" component={GoaHome1} />
         <Stack.Screen name="DelhiHome1" component={DelhiHome1} />
         <Stack.Screen name="BangloreHome1" component={BangloreHome1} />

@@ -14,6 +14,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const DetailsScreen = ({navigation, route}) => {
   const item = route.params;
+  const user = route.params;
+  console.log(item);
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
