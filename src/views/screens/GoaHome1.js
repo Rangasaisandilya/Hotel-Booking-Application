@@ -7,24 +7,28 @@ import {
   View,
   ScrollView,
   FlatList,
-  Dimensions,
   Image,
   Pressable,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useNavigation} from '@react-navigation/native';
+import places from '../../consts/Goa';
 import Goa from '../../consts/Goa';
-import places from '../../consts/hotels';
 const post = places[0];
 
-const GoaHome1 = ({navigation}) => {
+const GoaHome1 = ({navigation, route}) => {
+  const user3 = route.params.user2;
+  console.log(user3);
+  // const goToPostPage = () => {
+  //   navigation.navigate('postDelhi', {postId: post.id, user3});
+  // };
   const Post = (props) => {
     const post = props.post;
 
     const navigation = useNavigation();
 
     const goToPostPage = () => {
-      navigation.navigate('postGoa', {postId: post.id});
+      navigation.navigate('postGoa', {postId: post.id, user3});
     };
     return (
       <Pressable onPress={goToPostPage} style={style.container}>
@@ -34,8 +38,7 @@ const GoaHome1 = ({navigation}) => {
           {post.location}
         </Text>
         <Text style={style.prices}>
-          {/* <Text style={styles.oldPrice}>{post.oldPrice}</Text> */}
-          <Text style={style.newPrice}> ₹{post.price} </Text>/ per night
+          <Text style={style.newPrice}> ₹{post.price} </Text>/ per day
         </Text>
       </Pressable>
     );

@@ -19,7 +19,7 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 const DestinationSearch = ({props, route}) => {
   const [inputText, setInputText] = useState('');
   const navigation = useNavigation();
-  const user2 = route.params;
+  const user2 = route.params.user1;
   console.log(user2);
   return (
     <View style={styles.container}>
@@ -28,7 +28,7 @@ const DestinationSearch = ({props, route}) => {
         data={searchResultsDelhi}
         renderItem={({item}) => (
           <Pressable
-            onPress={() => navigation.navigate('DelhiHome1', user2)}
+            onPress={() => navigation.navigate('DelhiHome1', {user2})}
             style={styles.row}>
             <View style={styles.iconContainer}>
               <Entypo name={'location-pin'} size={30} />
@@ -41,7 +41,7 @@ const DestinationSearch = ({props, route}) => {
         data={searchResultsGoa}
         renderItem={({item}) => (
           <Pressable
-            onPress={() => navigation.navigate('Goa')}
+            onPress={() => navigation.navigate('GoaHome1', {user2})}
             style={styles.row}>
             <View style={styles.iconContainer}>
               <Entypo name={'location-pin'} size={30} />
@@ -54,7 +54,7 @@ const DestinationSearch = ({props, route}) => {
         data={searchResultsBanglore}
         renderItem={({item}) => (
           <Pressable
-            onPress={() => navigation.navigate('Banglore')}
+            onPress={() => navigation.navigate('BangloreHome1', {user2})}
             style={styles.row}>
             <View style={styles.iconContainer}>
               <Entypo name={'location-pin'} size={30} />
@@ -67,7 +67,7 @@ const DestinationSearch = ({props, route}) => {
         data={searchResultsHyderabad}
         renderItem={({item}) => (
           <Pressable
-            onPress={() => navigation.navigate('Hyderabad')}
+            onPress={() => navigation.navigate('HyderabadHome1', {user2})}
             style={styles.row}>
             <View style={styles.iconContainer}>
               <Entypo name={'location-pin'} size={30} />

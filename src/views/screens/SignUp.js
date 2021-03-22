@@ -80,18 +80,27 @@ export default class SignUp extends Component {
         <View style={{height: 100}}>
           <Text
             style={{
-              color: '#4863a0',
+              color: 'green',
               fontWeight: 'bold',
               fontSize: 30,
-              marginTop: 12,
+              marginTop: 8,
               textAlign: 'center',
             }}>
-            Register Now!
+            Register Here!
           </Text>
         </View>
         <ScrollView>
           <View>
-            <Text style={{fontSize: 20}}>UserName</Text>
+            <Text
+              style={{
+                fontSize: 20,
+                fontWeight: 'bold',
+                fontStyle: 'italic',
+                color: 'black',
+                marginLeft: 30,
+              }}>
+              UserName
+            </Text>
             <View style={styles.action}>
               <TextInput
                 placeholder="Your Username"
@@ -101,7 +110,17 @@ export default class SignUp extends Component {
                 onChangeText={(userName) => this.setState({userName: userName})}
               />
             </View>
-            <Text style={{marginTop: 10, fontSize: 20}}>Password</Text>
+            <Text
+              style={{
+                marginTop: 10,
+                fontSize: 20,
+                fontWeight: 'bold',
+                fontStyle: 'italic',
+                color: 'black',
+                marginLeft: 30,
+              }}>
+              Password
+            </Text>
             <View style={styles.action}>
               <TextInput
                 placeholder="Your Password"
@@ -111,7 +130,17 @@ export default class SignUp extends Component {
                 onChangeText={(password) => this.setState({password: password})}
               />
             </View>
-            <Text style={{marginTop: 10, fontSize: 20}}>Address</Text>
+            <Text
+              style={{
+                marginTop: 10,
+                fontSize: 20,
+                fontWeight: 'bold',
+                fontStyle: 'italic',
+                color: 'black',
+                marginLeft: 30,
+              }}>
+              Address
+            </Text>
             <View style={styles.action}>
               <TextInput
                 placeholder="enter Address"
@@ -120,7 +149,17 @@ export default class SignUp extends Component {
                 onChangeText={(address) => this.setState({address: address})}
               />
             </View>
-            <Text style={{marginTop: 10, fontSize: 20}}>emailId</Text>
+            <Text
+              style={{
+                marginTop: 10,
+                fontSize: 20,
+                fontWeight: 'bold',
+                fontStyle: 'italic',
+                color: 'black',
+                marginLeft: 30,
+              }}>
+              emailId
+            </Text>
             <View style={styles.action}>
               <TextInput
                 placeholder="enter emailId"
@@ -129,7 +168,17 @@ export default class SignUp extends Component {
                 onChangeText={(emailId) => this.setState({emailId: emailId})}
               />
             </View>
-            <Text style={{marginTop: 10, fontSize: 20}}>PhoneNumber</Text>
+            <Text
+              style={{
+                marginTop: 10,
+                fontSize: 20,
+                fontWeight: 'bold',
+                fontStyle: 'italic',
+                color: 'black',
+                marginLeft: 30,
+              }}>
+              PhoneNumber
+            </Text>
             <View style={styles.action}>
               <TextInput
                 placeholder="enter phone number"
@@ -140,7 +189,17 @@ export default class SignUp extends Component {
                 }
               />
             </View>
-            <Text style={{marginTop: 10, fontSize: 20}}>AadharNumber</Text>
+            <Text
+              style={{
+                marginTop: 10,
+                fontSize: 20,
+                fontWeight: 'bold',
+                fontStyle: 'italic',
+                color: 'black',
+                marginLeft: 30,
+              }}>
+              AadharNumber
+            </Text>
             <View style={styles.action}>
               <TextInput
                 placeholder="enter AadharNumber"
@@ -152,15 +211,13 @@ export default class SignUp extends Component {
               />
             </View>
             <View style={styles.button}>
-              <LinearGradient
-                colors={['#1f65aa', '#1f65ff']}
-                style={styles.signIn}>
+              <LinearGradient colors={['#fff', '#fff']} style={styles.signIn}>
                 <Text
                   onPress={this.checkLogin.bind(this)}
                   style={[
                     styles.textSign,
                     {
-                      color: '#fff',
+                      color: 'red',
                     },
                   ]}>
                   SignUp
@@ -222,6 +279,7 @@ const styles = StyleSheet.create({
     marginTop: -10,
     paddingLeft: 10,
     color: '#05375a',
+    marginLeft: 20,
   },
   button: {
     alignItems: 'center',

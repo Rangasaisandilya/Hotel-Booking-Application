@@ -11,14 +11,24 @@ import {
   Pressable,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Banglore from '../../consts/Banglore';
+import {useNavigation} from '@react-navigation/native';
+import places from '../../consts/Hyderabad';
 import Hyderabad from '../../consts/Hyderabad';
+const post = places[0];
 
-const BangloreHome1 = ({navigation}) => {
+const HyderabadHome1 = ({navigation, route}) => {
+  const user3 = route.params.user2;
+  console.log(user3);
+  // const goToPostPage = () => {
+  //   navigation.navigate('postDelhi', {postId: post.id, user3});
+  // };
   const Post = (props) => {
     const post = props.post;
+
+    const navigation = useNavigation();
+
     const goToPostPage = () => {
-      navigation.navigate('postHyderabad', {postId: post.id});
+      navigation.navigate('postHyderabad', {postId: post.id, user3});
     };
     return (
       <Pressable onPress={goToPostPage} style={style.container}>
@@ -28,8 +38,7 @@ const BangloreHome1 = ({navigation}) => {
           {post.location}
         </Text>
         <Text style={style.prices}>
-          {/* <Text style={styles.oldPrice}>{post.oldPrice}</Text> */}
-          <Text style={style.newPrice}> ₹{post.price} </Text>/ per night
+          <Text style={style.newPrice}> ₹{post.price} </Text>/ per day
         </Text>
       </Pressable>
     );
@@ -58,10 +67,12 @@ const BangloreHome1 = ({navigation}) => {
       </View>
       <ScrollView showsVerticalScrollIndicator={true}>
         <View>
-          <FlatList
-            data={Hyderabad}
-            renderItem={({item}) => <Post post={item} />}
-          />
+          <View>
+            <FlatList
+              data={Hyderabad}
+              renderItem={({item}) => <Post post={item} />}
+            />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -133,4 +144,4 @@ const style = StyleSheet.create({
     lineHeight: 20,
   },
 });
-export default BangloreHome1;
+export default HyderabadHome1;

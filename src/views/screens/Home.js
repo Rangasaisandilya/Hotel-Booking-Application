@@ -21,7 +21,7 @@ const Home = ({props, route}) => {
   const logout = () => {
     navigation.navigate('Login');
   };
-  const user1 = route.params;
+  const user1 = route.params.userId;
   console.log(user1);
   return (
     <View>
@@ -32,7 +32,7 @@ const Home = ({props, route}) => {
         <Text style={styles.title}>Welcome to Hotel Booking App</Text>
         <Pressable
           style={styles.buttons}
-          onPress={() => navigation.navigate('DestinationSearch', user1)}>
+          onPress={() => navigation.navigate('DestinationSearch', {user1})}>
           <FontAwesome name="hand-o-right" size={25} color={'#f15454'} />
           <Text style={styles.buttonText}>Click here to book hotel</Text>
           <FontAwesome name="hand-o-left" size={25} color={'#f15454'} />

@@ -7,7 +7,7 @@ import {useRoute} from '@react-navigation/native';
 
 const post = places[0];
 
-const PostscreeBanglore = (props) => {
+const PostscreenBanglore = (props) => {
   const route = useRoute();
   //   console.log(route.params);
   const post = places.find((place) => place.id === route.params.postId);
@@ -18,4 +18,4 @@ const PostscreeBanglore = (props) => {
   );
 };
 
-export default PostscreeBanglore;
+export default PostscreenBanglore;

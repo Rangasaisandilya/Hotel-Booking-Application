@@ -17,19 +17,19 @@ import hotels from '../../consts/hotels';
 const post = places[0];
 
 const DelhiHome1 = ({navigation, route}) => {
-  const user3 = route.params;
+  const user3 = route.params.user2;
   console.log(user3);
-  const goToPostPage = () => {
-    navigation.navigate('postDelhi', {postId: post.id, user3});
-  };
+  // const goToPostPage = () => {
+  //   navigation.navigate('postDelhi', {postId: post.id, user3});
+  // };
   const Post = (props) => {
     const post = props.post;
 
     const navigation = useNavigation();
 
-    // const goToPostPage = () => {
-    //   navigation.navigate('postDelhi', {postId: post.id}, {user3});
-    // };
+    const goToPostPage = () => {
+      navigation.navigate('postDelhi', {postId: post.id, user3});
+    };
     return (
       <Pressable onPress={goToPostPage} style={style.container}>
         <Image style={style.image} source={{uri: post.image}} />

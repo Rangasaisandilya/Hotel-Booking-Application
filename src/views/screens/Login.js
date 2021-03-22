@@ -41,7 +41,7 @@ export default class SignInScreen extends Component {
           alert('emailid or password incorrect try again!');
           // this.props.navigation.navigate('Home');
         } else {
-          this.props.navigation.navigate('Home', this.userId);
+          this.props.navigation.navigate('Home', {userId: this.userId});
           // alert('Username/Password mismatch');
         }
         console.log(responseJson);

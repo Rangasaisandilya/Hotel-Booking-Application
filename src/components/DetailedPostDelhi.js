@@ -35,7 +35,7 @@ const DetailedPost = (props) => {
 
         <Text style={styles.longDescription}>{posts.details}</Text>
         <TouchableOpacity
-          onPress={() => navigation.navigate('ConfirmBooking', posts, user4)}>
+          onPress={() => navigation.navigate('ConfirmBooking', {posts, user4})}>
           <View
             style={{
               height: 55,

@@ -15,10 +15,11 @@ import ModalDropdown from 'react-native-modal-dropdown';
 
 const ConfirmBooking = ({navigation, route}) => {
   const user5 = route.params.user4;
-  const item = route.params;
+  const item = route.params.posts;
   // const user = route.params;
-  console.log(user5);
+  // console.log(user5);
   console.log(item);
+  console.log(user5);
   return (
     <ScrollView>
       <StatusBar barStyle="dark-content" />
@@ -99,7 +100,7 @@ const ConfirmBooking = ({navigation, route}) => {
           />
         </View>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Finalpage', item, user5)}>
+          onPress={() => navigation.navigate('Finalpage', {item, user5})}>
           <View style={style.btn}>
             <Text style={{color: 'white', fontSize: 18, fontWeight: 'bold'}}>
               Confirm Booking

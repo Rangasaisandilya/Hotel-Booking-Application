@@ -27,15 +27,15 @@ function Finalpage({route}) {
   const [totalPrice, setTotalPrice] = useState('');
   const [bookingStatus, setBookingStatus] = useState('');
   // const [roomid, setRoomid] = useState('');
-  // const user6 = route.params.user5;
-  // console.log(user6);
+  const user6 = route.params.user5;
+  //console.log(user6);
   var userObj = {};
-  userObj = {userId: 1};
+  userObj = {userId: user6};
 
-  const item = route.params.roomid;
-  // console.log(item);
+  const ite = route.params.item.roomid;
+  //console.log(ite);
   var roomObj = {};
-  roomObj = {roomId: item};
+  roomObj = {roomId: ite};
   const checkTextInput = () => {
     return;
   };
@@ -119,9 +119,8 @@ function Finalpage({route}) {
       .done();
   };
   // const item = route.params.roomid;
-  const item1 = route.params;
-
-  // console.log(item);
+  const item1 = route.params.item;
+  //console.log(item1);
   return (
     <View>
       <StatusBar barStyle="dark-content" translucent backgroundColor="white" />

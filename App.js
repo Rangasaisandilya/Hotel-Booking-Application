@@ -22,7 +22,7 @@ import Finalpage from './src/views/screens/Finalpage';
 import Viewdetails from './src/views/screens/Viewdetails';
 import PostscreenDelhi from './src/views/screens/PostscreenDelhi';
 import PostscreenHyderabad from './src/views/screens/PostscreenHyderabad';
-import PostscreeBanglore from './src/views/screens/PostscreenBanglore';
+import PostscreenBanglore from './src/views/screens/PostscreenBanglore';
 import PostscreenGoa from './src/views/screens/PostscreenGoa';
 import Login from './src/views/screens/Login';
 import SignUp from './src/views/screens/SignUp';
@@ -84,10 +84,15 @@ const App = () => {
         <Stack.Screen name="DelhiHome1" component={DelhiHome1} />
         <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
         <Stack.Screen name="ConfirmBooking" component={ConfirmBooking} />
-        {/* <Stack.Screen name="GoaHome1" component={GoaHome1} />
-        <Stack.Screen name="DelhiHome1" component={DelhiHome1} />
+        <Stack.Screen name="GoaHome1" component={GoaHome1} />
+        <Stack.Screen name="GoaDetails" component={GoaDetails} />
+        <Stack.Screen name="GoaConfirm" component={GoaConfirm} />
         <Stack.Screen name="BangloreHome1" component={BangloreHome1} />
-        <Stack.Screen name="HyderabadHome1" component={HyderabadHome1} /> */}
+        <Stack.Screen name="BangloreDetails" component={BangloreDetails} />
+        <Stack.Screen name="BangloreConfirm" component={BangloreConfirm} />
+        <Stack.Screen name="HyderabadHome1" component={HyderabadHome1} />
+        <Stack.Screen name="HyderabadDetails" component={HyderabadDetails} />
+        <Stack.Screen name="HyderabadConfirm" component={HyderabadConfirm} />
 
         <Stack.Screen
           name="postDelhi"
@@ -115,7 +120,7 @@ const App = () => {
         />
         <Stack.Screen
           name="postBanglore"
-          component={PostscreeBanglore}
+          component={PostscreenBanglore}
           options={{
             headerShown: true,
             title: 'Accommodation in Banglore',
